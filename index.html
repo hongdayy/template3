@@ -45,39 +45,99 @@
         </div>
         <div id="overlay" class="overlay"></div>
     
-        <!-- Mobile Menu Button -->
         <div class="md:hidden">
           <button id="menu-toggle" class="text-gray-700 focus:outline-none">
-            <svg class="h-6 w-6" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2z"/>
+            <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
         </div>
-      </header>
-    
-      <!-- Mobile Navigation -->
-      <div id="mobile-menu">
-        <div class="close-btn" id="close-btn">Đóng</div>
-        <div class="menu-content ">
-          <nav>
-            <ul class="space-y-2 ">
-              <li><a href="#" class="block py-2 px-4 hover:bg-gray-200">Ưu đãi</a></li>
-              <li><a href="#" class="block py-2 px-4 hover:bg-gray-200">Dịch vụ</a></li>
-              <li><a href="#" class="block py-2 px-4 hover:bg-gray-200">Giới thiệu</a></li>
-              <li><a href="#" class="block py-2 px-4 hover:bg-gray-200">Đội ngũ bác sĩ</a></li>
-              <li><a href="#" class="block py-2 px-4 hover:bg-gray-200">Bảng giá</a></li>
-              <li><a href="#" class="block py-2 px-4 hover:bg-gray-200">Thư viện</a></li>
-              <li><a href="#" class="block py-2 px-4 hover:bg-gray-200">Liên hệ</a></li>
-              <li class="hidden md:flex items-center">
-                <a href="tel:19001806" class="text-white bg-gradient-to-b from-[#FFB469] to-[#E57709] px-4 py-2 rounded-full font-semibold flex items-center gap-2 transition-all duration-300 hover:brightness-110 hover:scale-105">
-                  <img src="./image/Path@3x.png" alt="Phone Icon" class="w-5 h-5" />
+        
+        <!-- Lớp phủ nền mờ khi menu mở -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+        
+        <!-- Menu mobile -->
+        <div id="mobile-menu"
+             class="fixed top-0 right-0 bottom-0 w-64 bg-gradient-to-b from-blue-600 to-blue-800 z-50 shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+          <!-- Nút đóng -->
+          <div class="flex justify-end p-4">
+            <button id="close-btn" class="text-white text-3xl hover:text-gray-300 transition">&times;</button>
+          </div>
+          <!-- Danh sách menu -->
+          <nav class="px-6">
+            <ul class="space-y-4">
+              <li>
+                <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md hover:bg-blue-700 text-white font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift" viewBox="0 0 16 16">
+                    <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zM1 4v2h6V4zm8 0v2h6V4zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5z"/>
+                  </svg>
+                  Ưu đãi
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md hover:bg-blue-700 text-white font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                    <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                  </svg>
+                  Dịch vụ
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md hover:bg-blue-700 text-white font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                  </svg>
+                  Giới thiệu
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md hover:bg-blue-700 text-white font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                  </svg>
+                  Đội ngũ bác sĩ
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md hover:bg-blue-700 text-white font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
+                  </svg>
+                  Bảng giá
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md hover:bg-blue-700 text-white font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+  <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+</svg>
+                  Thư viện
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md hover:bg-blue-700 text-white font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708"/>
+                  </svg>
+                  Liên hệ
+                </a>
+              </li>
+              <li>
+                <a href="tel:19001806"
+                   class="block text-center bg-white text-blue-700 font-semibold px-4 py-2 rounded-full mt-4 hover:bg-blue-100  transition">
+                 
                   Hotline: 1900 1806
                 </a>
               </li>
             </ul>
+            
           </nav>
         </div>
-      </div>
     
       <!-- Hotline Button -->
     
@@ -635,6 +695,9 @@
     </div>
      </section>
 
+
+     
+
       <!-- <section class="max-w-[1920px] flex justify-center py-8">
         <img src="/image/Frame 9633.png" alt="Tiêm chủng Vắc-xin" />
       </section> -->
@@ -651,8 +714,96 @@
                 </p>
               </div>
             </div>
+
+            <div class="w-full overflow-x-auto mt-5">
+              <div class="min-w-[768px] text-sm text-gray-500">
+                <table class="w-full border border-gray-300 rounded-lg">
+                  <thead>
+                    <tr class="text-white bg-gradient-to-r from-[#50C577] to-[#2DBEFC] rounded-t-2xl">
+                      <th rowspan="2" class="border border-white px-4 py-2 text-xl font-bold">STT</th>
+                      <th rowspan="2" class="border border-white px-4 py-2 text-xl font-bold">TÊN DỊCH VỤ</th>
+                      <th colspan="2" class="border border-white px-4 py-2 text-xl font-bold">
+                        GIÁ DỊCH VỤ DÀNH CHO KHÁCH HÀNG CÓ QUỐC TỊCH
+                      </th>
+                    </tr>
+                    <tr class="text-white bg-gradient-to-r from-[#50C577] to-[#2DBEFC]">
+                      <th class="border border-white px-4 py-2 text-xl font-bold">Việt Nam</th>
+                      <th class="border border-white px-4 py-2 text-xl font-bold">Nước ngoài</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b">
+                      <td class="border px-4 py-3 text-center">1</td>
+                      <td class="border px-4 py-3">Chăm sóc điều dưỡng tại nhà - Bệnh nhân nặng</td>
+                      <td class="border px-4 py-3 text-center">200,000 / giờ</td>
+                      <td class="border px-4 py-3 text-center">400,000 / giờ</td>
+                    </tr>
+                    <tr class="bg-gray-50 border-b">
+                      <td class="border px-4 py-3 text-center">2</td>
+                      <td class="border px-4 py-3">Cắt chỉ</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="border px-4 py-3 text-center">3</td>
+                      <td class="border px-4 py-3">Phương tiện báo họ lấy máu</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                    </tr>
+                    <tr class="bg-gray-50 border-b">
+                      <td class="border px-4 py-3 text-center">4</td>
+                      <td class="border px-4 py-3">Tắm bé tại nhà</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="border px-4 py-3 text-center">5</td>
+                      <td class="border px-4 py-3">Dẫn lưu nước tiểu bàng quang</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                      <td class="border px-4 py-3 text-center">300,000 / lần</td>
+                    </tr>
+                    <tr class="bg-gray-50 border-b">
+                      <td class="border px-4 py-3 text-center">6</td>
+                      <td class="border px-4 py-3">Chăm sóc điều dưỡng tại nhà - Bệnh nhân nặng</td>
+                      <td class="border px-4 py-3 text-center">200,000 / giờ</td>
+                      <td class="border px-4 py-3 text-center">400,000 / giờ</td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="border px-4 py-3 text-center">7</td>
+                      <td class="border px-4 py-3">Chăm sóc điều dưỡng tại nhà - Bệnh nhân nặng</td>
+                      <td class="border px-4 py-3 text-center">200,000 / giờ</td>
+                      <td class="border px-4 py-3 text-center">400,000 / giờ</td>
+                    </tr>
+                    <tr class="bg-gray-50 border-b">
+                      <td class="border px-4 py-3 text-center">8</td>
+                      <td class="border px-4 py-3">Xét nghiệm tại nhà</td>
+                      <td colspan="2" class="border px-4 py-3 text-center">Theo giá niêm yết tại BVĐK Phương Đông</td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="border px-4 py-3 text-center">9</td>
+                      <td class="border px-4 py-3">Chăm sóc điều dưỡng tại nhà - Bệnh nhân nặng</td>
+                      <td class="border px-4 py-3 text-center">200,000 / giờ</td>
+                      <td class="border px-4 py-3 text-center">400,000 / giờ</td>
+                    </tr>
+                    <tr class="bg-gray-50 border-b">
+                      <td class="border px-4 py-3 text-center">10</td>
+                      <td class="border px-4 py-3">Chăm sóc điều dưỡng tại nhà - Bệnh nhân nặng</td>
+                      <td class="border px-4 py-3 text-center">200,000 / giờ</td>
+                      <td class="border px-4 py-3 text-center">400,000 / giờ</td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-3 text-center">11</td>
+                      <td class="border px-4 py-3">Chăm sóc điều dưỡng tại nhà - Bệnh nhân nặng</td>
+                      <td class="border px-4 py-3 text-center">200,000 / giờ</td>
+                      <td class="border px-4 py-3 text-center">400,000 / giờ</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
       
-            <div class="overflow-x-auto text-sm text-gray-500 mt-5">
+            <!-- <div class="overflow-x-auto text-sm text-gray-500 mt-5">
               <table class="w-full border border-gray-300 rounded-lg">
                 <thead>
                   <tr class="text-white bg-gradient-to-r from-[#50C577] to-[#2DBEFC] rounded-t-2xl">
@@ -735,7 +886,7 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </div> -->
     
           </section>
           
@@ -959,35 +1110,67 @@
             </div>
         </div> -->
 
-       <section>
-        <div class="">
-          <div class="flex flex-col items-center md:flex-row md:items-start  relative">
+        <section class="hidden md:block">
+          <div class="">
+            <div class="flex flex-col items-center md:flex-row md:items-start relative">
               <div class="relative">
-                  <img src="./image/Group 9321.png" alt=""
-                      class="max-h-97 object-cover rounded-tr-[20px] w-full md:w-auto">
-                  <div class="md:absolute md:top-1/2 md:right-[-200px] md:transform md:-translate-y-1/2 
-                          sm:right-[-50px] right-0 bg-white shadow-lg rounded-2xl p-6 
-                          max-w-lg  w-full   px-4 sm:px-6">
-                      <h2 class="text-2xl font-bold text-gray-800">
-                          Bệnh viện Phương Đông tiên phong trong dịch vụ thai sản trọn gói
-                      </h2>
-                      <p class="text-gray-600 mt-4">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                          tale tincidunt tortor lobortis pretium nulla quis sem nullam rhoncus.
-                          Ornare et dui sit massa. Volutpat porta leo pulvinar adipiscing gestas
-                          metus.
-                      </p>
-                      <button class="register-btn relative inline-flex items-center px-4 sm:px-5 py-1 sm:py-2 
-                                  text-white bg-gradient-to-b from-orange-300 to-orange-600 shadow-lg 
-                                  rounded-full transition-all hover:from-orange-400 hover:to-orange-700 
-                                  active:scale-95 mt-10 text-sm">
-                          Đăng ký tư vấn
-                      </button>
-                  </div>
+                <img src="./image/Group 9321.png" alt=""
+                     class="max-h-97 object-cover rounded-tr-[20px] w-full md:w-auto">
+                <div class="md:absolute md:top-1/2 md:right-[-200px] md:transform md:-translate-y-1/2 
+                            sm:right-[-50px] right-0 bg-white shadow-lg rounded-2xl p-6 
+                            max-w-lg w-full px-4 sm:px-6">
+                  <h2 class="text-2xl font-bold text-gray-800">
+                    Bệnh viện Phương Đông tiên phong trong dịch vụ thai sản trọn gói
+                  </h2>
+                  <p class="text-gray-600 mt-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    tale tincidunt tortor lobortis pretium nulla quis sem nullam rhoncus.
+                    Ornare et dui sit massa. Volutpat porta leo pulvinar adipiscing gestas
+                    metus.
+                  </p>
+                  <button class="register-btn relative inline-flex items-center px-4 sm:px-5 py-1 sm:py-2 
+                                 text-white bg-gradient-to-b from-orange-300 to-orange-600 shadow-lg 
+                                 rounded-full transition-all hover:from-orange-400 hover:to-orange-700 
+                                 active:scale-95 mt-10 text-sm">
+                    Đăng ký tư vấn
+                  </button>
+                </div>
               </div>
+            </div>
           </div>
-      </div>
-       </section>
+        </section>
+        
+
+       <section class="block md:hidden">
+        <div class="flex flex-col items-center md:flex-row md:items-start relative">
+          <div class="relative w-full">
+            <img src="./image/Group 9321.png" alt=""
+                 class="max-h-97 object-cover rounded-tr-[20px] w-full md:w-auto">
+      
+            <!-- Khối text -->
+            <div class="w-full max-w-lg px-4 sm:px-6 py-6 bg-white shadow-lg rounded-2xl 
+                        flex flex-col items-center text-center mx-auto mt-6">
+              <h2 class="text-2xl font-bold text-gray-800">
+                Bệnh viện Phương Đông tiên phong trong dịch vụ thai sản trọn gói
+              </h2>
+              <p class="text-gray-600 mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                tale tincidunt tortor lobortis pretium nulla quis sem nullam rhoncus.
+                Ornare et dui sit massa. Volutpat porta leo pulvinar adipiscing gestas
+                metus.
+              </p>
+              <button class="register-btn relative inline-flex items-center px-4 sm:px-5 py-1 sm:py-2 
+                             text-white bg-gradient-to-b from-orange-300 to-orange-600 shadow-lg 
+                             rounded-full transition-all hover:from-orange-400 hover:to-orange-700 
+                             active:scale-95 mt-10 text-sm">
+                Đăng ký tư vấn
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
     
 
 
@@ -1197,13 +1380,13 @@
                 turpis nunc mollis diam viverra dictum.</p>
         </div>
         <div class="flex sm:items-center">
-          <img src="./image/Rectangle 6463.png" alt="" class="hidden sm:block w-full h-auto object-cover -mt-6 md:-mt-5 pl-10">
+          <img src="./image/Rectangle 6463.png" alt="" class="hidden md:block w-full h-auto object-cover -mt-6 md:-mt-5 pl-10">
       </div>
       
     </div>
   </div>
-  <div class="block md:hidden text-center">
-    <img src="./image/Rectangle 6463.png" alt="" class="inline-block w-full max-w-xs h-auto object-cover mt-4">
+  <div class="block md:hidden  text-center">
+    <img src="./image/Rectangle 6463.png" alt="" class="inline-block w-[95%] h-auto object-cover mt-6 md:mt-0">
 </div>
 
   <section class="container mx-auto max-w-screen-xl pt-20  px-5 mx-auto bg-white p-6 rounded-lg flex flex-col md:flex-row items-center ">
@@ -1494,9 +1677,9 @@
            <a href="#"><img src="./image/Frame 9351.png" alt="" /></a>
          </div>
          <img
-           src="/image/thong-bao-website-voi-bo-cong-thuong_grande_waifu2x_photo_noise3_scale_tta_1 1.png"
+           src="./image/thong-bao-website-voi-bo-cong-thuong_grande_waifu2x_photo_noise3_scale_tta_1 1.png"
            alt="Bộ Công Thương"
-           class="w-[50%] mt-4"
+           class="md:w-[50%] mt-4"
          />
        </div>
      </div>

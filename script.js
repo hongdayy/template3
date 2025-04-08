@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     breakpoints: {
       640: {
-        slidesPerView: 2, // Hiển thị 2 slide cho màn hình nhỏ hơn 640px
+        slidesPerView: 3, // Hiển thị 2 slide cho màn hình nhỏ hơn 640px
         spaceBetween: 10
       },
       768: {
